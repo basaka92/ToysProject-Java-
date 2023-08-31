@@ -1,9 +1,6 @@
 package view;
 
 import presenter.Presenter;
-
-import java.io.Console;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class View {
@@ -15,54 +12,35 @@ public class View {
             System.out.println("Введите команду (введите help для отображения списка доступных команд):");
             String command = sc.next();
             System.out.println();
-            switch (command){
-                case "view":
-                    this.viewGoods();
-                    break;
-                case "add":
-                    this.addToy();
-                    break;
-                case "delete":
-                    this.deleteGoods();
-                    break;
-                case "drop":
-                    this.changeDropFrequency();
-                    break;
-                case "amount":
-                    this.changeGoodsAmount();
-                    break;
-                case "ruffle":
-                    this.ruffleGoods();
-                    break;
-                case "prizes":
-                    this.viewPrizes();
-                    break;
-                case "give":
-                    this.givePrizes();
-                    break;
-                case "help":
-                    this.getHelp();
-                    break;
-                case "exit":
-                    this.exit();
-                    break;
-                default:
-                    System.out.println("Такой команды нет!\n");
+            switch (command) {
+                case "view" -> this.viewGoods();
+                case "add" -> this.addToy();
+                case "delete" -> this.deleteGoods();
+                case "drop" -> this.changeDropFrequency();
+                case "amount" -> this.changeGoodsAmount();
+                case "ruffle" -> this.ruffleGoods();
+                case "prizes" -> this.viewPrizes();
+                case "give" -> this.givePrizes();
+                case "help" -> this.getHelp();
+                case "exit" -> this.exit();
+                default -> System.out.println("Такой команды нет!\n");
             }
         }
     }
     void getHelp(){
-        System.out.println("Список доступных команд:\n" +
-                "view - просмотр каталога игрушек в магазине\n" +
-                "add - добавление новой игрушки в каталог магазина\n" +
-                "delete - удаление игрушки из каталога магазина\n" +
-                "drop - изменение шанса выпадения игрушки\n" +
-                "amount - изменение количества игрушек\n" +
-                "ruffle - проведение розыгрыша игрушек\n" +
-                "prizes - просмотр списка игрушек на выдачу\n" +
-                "give - выдача следующей игрушки из списка ожидания\n" +
-                "help - просмотр списка команд\n" +
-                "exit - завершение работы программы\n");
+        System.out.println("""
+                Список доступных команд:
+                view - просмотр каталога игрушек в магазине
+                add - добавление новой игрушки в каталог магазина
+                delete - удаление игрушки из каталога магазина
+                drop - изменение шанса выпадения игрушки
+                amount - изменение количества игрушек
+                ruffle - проведение розыгрыша игрушек
+                prizes - просмотр списка игрушек на выдачу
+                give - выдача следующей игрушки из списка ожидания
+                help - просмотр списка команд
+                exit - завершение работы программы
+                """);
     }
     void viewGoods(){
         this.loadShop();

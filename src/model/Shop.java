@@ -5,9 +5,9 @@ import java.util.*;
 
 public class Shop implements Serializable {
 
-    private TreeMap goods = new TreeMap<Integer,Goods>();
-    private LinkedList prizes = new LinkedList<String>();
-    private ArrayList<Integer> deletedGoodsId = new ArrayList<Integer>();
+    private TreeMap<Integer, Goods> goods = new TreeMap<>();
+    private LinkedList<String> prizes = new LinkedList<>();
+    private ArrayList<Integer> deletedGoodsId = new ArrayList<>();
 
    public void addGoods(String name, int amount, double dropFrequency){
        if (deletedGoodsId.isEmpty()){
@@ -69,24 +69,18 @@ public class Shop implements Serializable {
                 stringBuilder.append("Каталог товаров магазина:\n");
                 check = false;
             }
-            stringBuilder.append("|\n|\n" + "ID: " + tempGoods.getKey() + "\n"
-                                + "Имя игрушки: " + tempGoods.getValue().getName() + "\n"
-            + "Количество в магазине: " + tempGoods.getValue().getAmount() + "\n"
-            + "Частота выпадения: " + tempGoods.getValue().getDropFrequency() + "\n");
+            stringBuilder.append("|\n|\n" + "ID: ").append(tempGoods.getKey()).append("\n").append("Имя игрушки: ").append(tempGoods.getValue().getName()).append("\n").append("Количество в магазине: ").append(tempGoods.getValue().getAmount()).append("\n").append("Частота выпадения: ").append(tempGoods.getValue().getDropFrequency()).append("\n");
         }
         return  stringBuilder.toString();
     }
-    LinkedList getPrizes(){
+    LinkedList<String> getPrizes(){
        return this.prizes;
     }
     Goods getGoodsById(int id){
       return (Goods) goods.get(id);
     }
     boolean checkGoodsId(int id){
-       if (goods.containsKey(id)){
-           return true;
-       }
-       return false;
+        return goods.containsKey(id);
     }
     }
 

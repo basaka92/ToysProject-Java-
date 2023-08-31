@@ -3,8 +3,6 @@ package presenter;
 import model.Service;
 import view.View;
 
-import java.io.IOException;
-
 public class Presenter {
     Service service = new Service();
     View view;
